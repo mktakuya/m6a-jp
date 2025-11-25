@@ -16,9 +16,6 @@ export default function Header() {
         <Link href="/about" className="font-sans text-lg text-gray-600 no-underline hover:text-gray-600">
           About Me
         </Link>
-        <Link href="/posts" className="font-sans text-lg text-gray-600 no-underline hover:text-gray-600">
-          Posts
-        </Link>
         <Link href="/misc" className="font-sans text-lg text-gray-600 no-underline hover:text-gray-600">
           Misc
         </Link>
