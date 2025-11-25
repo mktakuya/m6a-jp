@@ -51,6 +51,12 @@ export default async function Home() {
               </div>
             ))}
           </div>
+
+          <div className="mt-2">
+            <a className="text-gray-600 hover:text-gray-900 font-sans text-sm" href="https://blog.m6a.jp" target="_blank" rel="noopener noreferrer">
+              ブログをもっと見る →
+            </a>
+          </div>
         </div>
       </div>
 
