@@ -1,52 +1,59 @@
+import Link from "next/link";
 import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Home() {
-	return (
-		<div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-			<main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-				<Image className="dark:invert" src="/next.svg" alt="Next.js logo" width={180} height={38} priority />
-				<ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-					<li className="mb-2 tracking-[-.01em]">
-						Get started by editing{" "}
-						<code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-							src/app/page.tsx
-						</code>
-						.
-					</li>
-					<li className="tracking-[-.01em]">Save and see your changes instantly.</li>
-				</ol>
+  // サンプルの投稿データ
+  const posts = [
+    { title: "サンプル記事 1", date: "2025-01-15", slug: "sample-1" },
+    { title: "サンプル記事 2", date: "2025-01-10", slug: "sample-2" },
+    { title: "サンプル記事 3", date: "2025-01-05", slug: "sample-3" },
+  ];
 
-				<div className="flex gap-4 items-center flex-col sm:flex-row">
-					<a
-						className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-						href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Read our docs
-					</a>
-				</div>
-			</main>
-			<footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-				<a
-					className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-					href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
-					Learn
-				</a>
-				<a
-					className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-					href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
-					Go to nextjs.org →
-				</a>
-			</footer>
-		</div>
-	);
+  return (
+    <div className="container mx-auto flex flex-col gap-6 px-4 py-8 lg:px-64">
+      <Header />
+
+      <div className="mt-8 flex flex-col gap-12">
+        <div className="flex flex-col items-center gap-6 md:flex-row">
+          <Image className="w-[128px] rounded-full" src="/mktakuya.png" alt="mktakuya のプロフィールアイコン" width={128} height={128} />
+
+          <div className="flex w-full flex-col gap-2 max-lg:text-center">
+            <div className="font-sans text-3xl font-bold">
+              Takuya Mukohira
+              <small className="ml-2 font-semibold text-gray-400">mktakuya</small>
+            </div>
+
+            <p>
+              北海道千歳市出身のソフトウェアエンジニア /
+              <a href="https://yuru28.com" target="_blank" rel="noopener">
+                ゆるふわPodcast
+              </a>
+              のホスト
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <h2 className="font-sans text-2xl font-semibold text-black">Posts</h2>
+
+          <div className="flex flex-col gap-2 border-gray-200">
+            {posts.map((post) => (
+              <div key={post.slug} className="flex flex-col text-gray-600">
+                <div className="font-sans text-lg font-semibold">
+                  <Link className="text-gray-600 hover:text-gray-900 no-underline" href={`/posts/${post.slug}`}>
+                    {post.title}
+                  </Link>
+                </div>
+                <div className="font-sans text-sm font-light">{post.date}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
 }
