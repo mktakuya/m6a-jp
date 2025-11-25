@@ -25,7 +25,8 @@
 			"./cloudflare-env.d.ts",
 			"./cloudflare-env.d.ts",
 			"node",
-			"node"
+			"node",
+			"vitest/globals"
 		]
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
