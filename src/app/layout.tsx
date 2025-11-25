@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml"></link>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon"></link>
       </head>
       <body className="bg-rice-cake">{children}</body>
     </html>
